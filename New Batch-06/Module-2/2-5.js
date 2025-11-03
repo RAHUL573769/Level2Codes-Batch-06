@@ -26,6 +26,6 @@ const bestScorer = players.reduce((bestPlayer, player) => {
   }
 
   return player;
-}, players[0]);
+}, {});
 
 console.log(bestScorer);
