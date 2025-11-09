@@ -1,0 +1,1 @@
+var course = "Hello World";
