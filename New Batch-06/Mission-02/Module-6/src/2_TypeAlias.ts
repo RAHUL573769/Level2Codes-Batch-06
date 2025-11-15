@@ -5,9 +5,7 @@ console.log(converted);
 
 // ---------------
 
-const kgToGramConverter = (
-  input: string | number
-): string | number | undefined => {
+const kgToGramConverter = (input: string | number) => {
   if (typeof input === "number") {
     return input * 100;
   } else if (typeof input === "string") {
@@ -22,7 +20,7 @@ console.log(output2);
 
 // ----------------------
 
-type ErrorType = { message: string };
+type ErrorType = { message: "Error Found" };
 
 try {
 } catch (error: unknown) {
