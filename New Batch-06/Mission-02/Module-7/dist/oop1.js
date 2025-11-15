@@ -30,10 +30,64 @@ class Animal1 {
 const cat1 = new Animal("Rah", "", "");
 console.log(cat1.makeSound());
 // -----------------Inheritence--
-class Student {
+class Parent {
     constructor(name1, id, roll) {
         this.name = name1;
         this.id = id;
         this.roll = roll;
     }
+    classHours(hours) { }
 }
+class Student extends Parent {
+    constructor(name1, id, roll) {
+        super(name1, id, roll);
+        // this.name = name1;
+        // this.id = id;
+        // this.roll = roll;
+    }
+    classHours(hours) { }
+}
+const studen1 = new Student("ty", 13, 56);
+console.log(studen1.id);
+// --------------
+class Parent1 {
+    constructor(name1, id, roll) {
+        this.name = name1;
+        this.id = id;
+        this.roll = roll;
+    }
+    classHours(hours) {
+        console.log(`${this.name} attends class for ${hours} hours.`);
+    }
+}
+class Student1 extends Parent1 {
+    constructor(name1, id, roll) {
+        super(name1, id, roll); // Calls Parent constructor
+    }
+    classHours(hours) {
+        console.log(`Student ${this.name} studies for ${hours} hours.`);
+    }
+}
+const student1 = new Student("Ty", 13, 56);
+console.log(student1.id); // Output: 13
+student1.classHours(3); // Example method call
+// --------------------
+class Parent2 {
+    constructor(name1, id, roll) {
+        this.name = name1;
+        this.id = id;
+        this.roll = roll;
+    }
+    classHours(hours) { }
+}
+class Student2 extends Parent2 {
+    constructor(name1, id, roll, sleep) {
+        super(name1, id, roll);
+        this.sleep = sleep; // assign sleep
+    }
+    classHours(hours) { }
+}
+// Provide all 4 required arguments
+const student13 = new Student2("ty", 13, 56, 8);
+console.log(student1.id); // Output: 13
+console.log(student13.sleep); // Output: 8
