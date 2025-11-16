@@ -1,7 +1,3 @@
-constcreateArrayWithGeneric = <T>(value: T) => {
+const createArrayWithGeneric = <T>(value: T) => {
   return [value];
 };
-
-
-
-const arrayString:=

@@ -23,6 +23,6 @@ console.log(output2);
 type ErrorType = { message: "Error Found" };
 
 try {
-} catch (error: unknown) {
+} catch (error: any) {
   console.log((error as ErrorType).message);
 }

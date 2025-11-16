@@ -17,10 +17,10 @@ interface IUser0 {
 }
 
 const user0: IUser0 = { name: "" };
-interface IFriends {
+interface IFriends4 {
   [index: number]: string;
 }
-const friend5: IFriends = ["A", "B", "C"];
+const friend5: IFriends4 = ["A", "B", "C"];
 console.log(friend5);
 interface INumberInterface {
   (a: number, b: number, c: number, d: number): number;
@@ -30,3 +30,9 @@ const numberInterface: INumberInterface = (a, b, c, d) => {
 };
 
 console.log(numberInterface(1, 2, 3, 4));
+
+interface IGrocery {
+  [index: number]: string;
+}
+
+const groceryList: IGrocery = ["1"];

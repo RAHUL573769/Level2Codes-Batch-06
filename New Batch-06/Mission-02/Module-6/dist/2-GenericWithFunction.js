@@ -1,5 +1,4 @@
 "use strict";
-constcreateArrayWithGeneric = (value) => {
+const createArrayWithGeneric = (value) => {
     return [value];
 };
-const arrayString = ;
