@@ -5,5 +5,9 @@ class Student3 {
     this.id = id1;
     this.name = name1;
   }
+
+  makeSound() {
+    console.log(``);
+  }
 }
 const Rahul = new Student3(123, "");
