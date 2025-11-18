@@ -171,3 +171,38 @@ const bookExample: Book3 = {
 };
 
 printBookDetails(bookExample);
+
+interface ProductProperties {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
+
+function calculateTotalPrice(products: ProductProperties[]): number {
+  if (products.length === 0) {
+    return 0;
+  } else {
+    const value = products
+      .map((product) => {
+        const total = product.price * product.quantity;
+
+        if (product.discount) {
+          const discountAmount = (total * product.discount) / 100;
+          return total - discountAmount;
+        }
+
+        return total;
+      })
+      .reduce((sum, value) => sum + value, 0);
+
+    return value;
+  }
+}
+const products = [
+  { name: "Pen", price: 10, quantity: 2 },
+  { name: "Notebook", price: 25, quantity: 3, discount: 10 },
+  { name: "Bag", price: 50, quantity: 1, discount: 20 },
+];
+
+console.log(calculateTotalPrice(products));
