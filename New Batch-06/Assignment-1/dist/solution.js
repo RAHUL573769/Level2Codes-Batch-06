@@ -20,4 +20,74 @@ const formatValue = (a) => {
 console.log(formatValue("hello"));
 console.log(formatValue(5));
 console.log(formatValue(true));
+const getLength = (value1) => {
+    if (typeof value1 === "string") {
+        const lengthString = value1.length;
+        return lengthString;
+    }
+    else if (Array.isArray(value1)) {
+        const lengthArray = value1.length;
+        return lengthArray;
+    }
+    else {
+        console.log("Invalid Output");
+    }
+};
+// Create a Person class with name and age properties. Add a method getDetails that returns a string with the person's name and age.
+// Requirements:
+// You must use a constructor to initialize the properties.
+// The getDetails method should return a string in the format: "Name: [name], Age: [age]".
+// Sample Input:
+// const person1 = new Person('John Doe', 30);
+// console.log(person1.getDetails());
+// const person2 = new Person('Alice', 25);
+// console.log(person2.getDetails());
+// Sample Output:
+// 'Name: John Doe, Age: 30';
+// 'Name: Alice, Age: 25';
+class Person {
+    name;
+    age;
+    constructor(nameGiven, ageGiven) {
+        this.name = nameGiven;
+        this.age = ageGiven;
+    }
+    getDetails() {
+        const formattedString = `Name: ${this.name}, Age: ${this.age}  `;
+        return formattedString;
+    }
+}
+const person1 = new Person("John Doe", 30);
+console.log(person1.getDetails());
+function filterByRating(items) {
+    return items.filter((item) => item.rating >= 4);
+}
+const books = [
+    { title: "Book A", rating: 4.5 },
+    { title: "Book B", rating: 3.2 },
+    { title: "Book C", rating: 5.0 },
+];
+console.log(filterByRating(books));
+[];
+const filterActiveUsers = (usersArrayInput) => {
+    return usersArrayInput.filter((user) => user.isActive);
+};
+const users = [
+    { id: 1, name: "Rakib", email: "rakib@example.com", isActive: true },
+    { id: 2, name: "Asha", email: "asha@example.com", isActive: false },
+    { id: 3, name: "Rumi", email: "rumi@example.com", isActive: true },
+];
+console.log(filterActiveUsers(users));
+const printBookDetails = (book3) => {
+    const isAvailable = book3.isAvailable ? "Yes" : "No";
+    const message = `Title: ${book3.title}, Author: ${book3.author}, Published: ${book3.publishedYear}, Available: ${isAvailable}`;
+    return message;
+};
+const bookExample = {
+    title: "Learn TS",
+    author: "John Doe",
+    publishedYear: 2023,
+    isAvailable: true,
+};
+printBookDetails(bookExample);
 //# sourceMappingURL=solution.js.map
