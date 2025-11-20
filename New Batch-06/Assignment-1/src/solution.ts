@@ -59,7 +59,7 @@ class Person {
     this.age = ageGiven;
   }
   getDetails() {
-    const formattedString = `Name: ${this.name}, Age: ${this.age}  `;
+    const formattedString = `'Name: ${this.name}, Age: ${this.age}' `;
     return formattedString;
   }
 }
@@ -206,3 +206,49 @@ const products = [
 ];
 
 console.log(calculateTotalPrice(products));
+interface IFunction5<T extends number> {
+  (arr1: T[], arr2: T[]): T[];
+}
+
+const getUniqueValues: IFunction5<number> = (arr1, arr2) => {
+  const combined: number[] = [...arr1, ...arr2];
+  const uniqueArray: number[] = [];
+
+  for (let i = 0; i < combined.length; i++) {
+    let isDuplicate = false;
+
+    for (let j = 0; j < uniqueArray.length; j++) {
+      if (combined[i] === uniqueArray[j]) {
+        isDuplicate = true;
+        break;
+      }
+    }
+
+    if (!isDuplicate) {
+      uniqueArray[uniqueArray.length] = combined[i] as number;
+    }
+  }
+
+  return uniqueArray;
+};
+
+// Example usage
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+console.log(getUniqueValues(array1, array2));
+
+interface Users {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+}
+interface IFunction3 {
+  (usersArrayInput: Users[]): Users[];
+}
+
+const filterActiveUsers1: IFunction3 = (usersArrayInput) => {
+  return usersArrayInput.filter((user) => user.isActive);
+};
+
+console.log(filterActiveUsers1(users));

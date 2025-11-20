@@ -53,7 +53,7 @@ class Person {
         this.age = ageGiven;
     }
     getDetails() {
-        const formattedString = `Name: ${this.name}, Age: ${this.age}  `;
+        const formattedString = `'Name: ${this.name}, Age: ${this.age}' `;
         return formattedString;
     }
 }
@@ -114,4 +114,29 @@ const products = [
     { name: "Bag", price: 50, quantity: 1, discount: 20 },
 ];
 console.log(calculateTotalPrice(products));
+const getUniqueValues = (arr1, arr2) => {
+    const combined = [...arr1, ...arr2];
+    const uniqueArray = [];
+    for (let i = 0; i < combined.length; i++) {
+        let isDuplicate = false;
+        for (let j = 0; j < uniqueArray.length; j++) {
+            if (combined[i] === uniqueArray[j]) {
+                isDuplicate = true;
+                break;
+            }
+        }
+        if (!isDuplicate) {
+            uniqueArray[uniqueArray.length] = combined[i];
+        }
+    }
+    return uniqueArray;
+};
+// Example usage
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+console.log(getUniqueValues(array1, array2));
+const filterActiveUsers1 = (usersArrayInput) => {
+    return usersArrayInput.filter((user) => user.isActive);
+};
+console.log(filterActiveUsers1(users));
 //# sourceMappingURL=solution.js.map
