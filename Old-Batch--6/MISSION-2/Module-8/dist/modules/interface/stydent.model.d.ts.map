@@ -1,1 +1,1 @@
-{"version":3,"file":"stydent.model.d.ts","sourceRoot":"","sources":["../../../src/modules/interface/stydent.model.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,QAAQ,EAAY,MAAM,qBAAqB,CAAC;AA+BzD,eAAO,MAAM,YAAY;;;;iBAAyC,CAAC"}
+{"version":3,"file":"stydent.model.d.ts","sourceRoot":"","sources":["../../../src/modules/interface/stydent.model.ts"],"names":[],"mappings":"AACA,OAAO,EAAmB,QAAQ,EAAE,MAAM,qBAAqB,CAAC;AAoChE,QAAA,MAAM,YAAY;;;;iBAA4C,CAAC;AAC/D,eAAe,YAAY,CAAC"}

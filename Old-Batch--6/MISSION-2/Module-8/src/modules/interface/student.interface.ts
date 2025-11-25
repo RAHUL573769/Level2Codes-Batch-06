@@ -1,9 +1,12 @@
-import { Schema, model, connect } from "mongoose";
-
 export type UserName = {
   firstName: string;
   middleName: string;
   lastName: string;
+};
+
+export type GuardianSchema1 = {
+  fatherName: string;
+  fatherOccupation: string;
 };
 export type IStudent = {
   id: string;
@@ -14,9 +17,6 @@ export type IStudent = {
   contactNumber: string;
   presentAddress: string;
   permanentAddress: string;
-  guardian: {
-    fatherName: string;
-    fatherOccupation: string;
-  };
+  guardian: GuardianSchema1;
   isActive: "active" | "blocked";
 };

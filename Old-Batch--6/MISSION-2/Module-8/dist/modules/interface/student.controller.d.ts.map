@@ -1,1 +1,1 @@
-{"version":3,"file":"student.controller.d.ts","sourceRoot":"","sources":["../../../src/modules/interface/student.controller.ts"],"names":[],"mappings":""}
+{"version":3,"file":"student.controller.d.ts","sourceRoot":"","sources":["../../../src/modules/interface/student.controller.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,QAAQ,EAAE,MAAM,SAAS,CAAC;AAa5C,eAAO,MAAM,iBAAiB;yBAVI,OAAO,OAAO,QAAQ;CAUN,CAAC"}

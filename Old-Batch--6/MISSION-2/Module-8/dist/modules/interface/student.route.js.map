@@ -1,1 +1,1 @@
-{"version":3,"file":"student.route.js","sourceRoot":"","sources":["../../../src/modules/interface/student.route.ts"],"names":[],"mappings":";;;;;AAAA,sDAA8B;AAC9B,MAAM,MAAM,GAAG,iBAAO,CAAC,MAAM,EAAE,CAAC;AAChC,MAAM,CAAC,IAAI,CAAC,EAAE,CAAC,CAAC"}
+{"version":3,"file":"student.route.js","sourceRoot":"","sources":["../../../src/modules/interface/student.route.ts"],"names":[],"mappings":";;;;;;AAAA,sDAA8B;AAC9B,6DAAyD;AACzD,MAAM,MAAM,GAAG,iBAAO,CAAC,MAAM,EAAE,CAAC;AAChC,MAAM,CAAC,IAAI,CAAC,cAAc,EAAE,sCAAiB,CAAC,aAAa,CAAC,CAAC;AAChD,QAAA,aAAa,GAAG,MAAM,CAAC"}

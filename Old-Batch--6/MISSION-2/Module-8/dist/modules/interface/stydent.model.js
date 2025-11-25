@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StudentModel = void 0;
 const mongoose_1 = require("mongoose");
-const userSchema = new mongoose_1.Schema({
-    firstName: { type: String },
-    middleName: { type: String },
-    lastName: { type: String },
+const GuardianSchema = new mongoose_1.Schema({
+    fatherName: {
+        type: String,
+    },
+    fatherOccupation: { type: String },
 });
 const studentSchema = new mongoose_1.Schema({
     id: { type: String },
@@ -19,18 +19,17 @@ const studentSchema = new mongoose_1.Schema({
         },
         lastName: { type: String },
     },
-    gender: ["male", "female"],
+    gender: {
+        type: String,
+        enum: ["male", "female"],
+    },
     dateOfBirth: { type: String },
     email: { type: String },
     contactNumber: { type: String },
     permanentAddress: { type: String },
     presentAddress: { type: String },
-    guardian: {
-        fatherName: { type: String },
-        fatherOccupation: { type: String },
-    },
+    guardian: GuardianSchema,
 });
-exports.StudentModel = (0, mongoose_1.model)("User", studentSchema);
-//   fatherName: string;
-//   fatherOccupation: string;
+const StudentModel = (0, mongoose_1.model)("Student", studentSchema);
+exports.default = StudentModel;
 //# sourceMappingURL=stydent.model.js.map

@@ -3,6 +3,10 @@ export type UserName = {
     middleName: string;
     lastName: string;
 };
+export type GuardianSchema1 = {
+    fatherName: string;
+    fatherOccupation: string;
+};
 export type IStudent = {
     id: string;
     name: UserName;
@@ -12,10 +16,7 @@ export type IStudent = {
     contactNumber: string;
     presentAddress: string;
     permanentAddress: string;
-    guardian: {
-        fatherName: string;
-        fatherOccupation: string;
-    };
+    guardian: GuardianSchema1;
     isActive: "active" | "blocked";
 };
 //# sourceMappingURL=student.interface.d.ts.map

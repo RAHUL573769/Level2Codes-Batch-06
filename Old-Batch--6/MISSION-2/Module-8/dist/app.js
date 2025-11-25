@@ -4,9 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const student_route_1 = require("./modules/interface/student.route");
 const app = (0, express_1.default)();
 app.get("/", (_req, res) => {
     res.send("Hello World!");
 });
+app.post("/create-user", student_route_1.StudentRouter);
 exports.default = app;
 //# sourceMappingURL=app.js.map
