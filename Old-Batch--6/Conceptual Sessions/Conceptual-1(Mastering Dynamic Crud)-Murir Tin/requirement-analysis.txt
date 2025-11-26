@@ -1,0 +1,28 @@
+Entitites:
+USER
+TOUR
+LOCATION
+REVIEW
+BOOKINGS
+
+COLLECTIONS:
+USER 
+
+{
+    name:rahul,
+    email:r@gmail.com,
+    review:[
+        {
+
+        }
+    ],
+    booking:[
+        {name:""}
+    ]
+}
+TOUR
+{
+
+}
+
+Embedding
