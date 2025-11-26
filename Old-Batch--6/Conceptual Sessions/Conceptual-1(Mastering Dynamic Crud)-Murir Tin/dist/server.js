@@ -10,9 +10,9 @@ require("dotenv").config();
 // const port = 5000;
 async function server() {
     try {
-        await mongoose_1.default.connect("mongodb://127.0.0.1:27017/murirTin");
+        await mongoose_1.default.connect(config_1.default.DB_LOCAL);
         app_1.default.listen(`${config_1.default.PORT} `, () => {
-            console.log("DB Connected");
+            console.log(`DB Connected ${config_1.default.PORT}`);
         });
     }
     catch (error) {

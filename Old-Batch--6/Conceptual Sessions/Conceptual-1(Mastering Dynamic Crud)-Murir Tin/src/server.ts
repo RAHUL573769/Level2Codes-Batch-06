@@ -7,9 +7,9 @@ require("dotenv").config();
 
 async function server() {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/murirTin");
+    await mongoose.connect(config.DB_LOCAL);
     app.listen(`${config.PORT} `, () => {
-      console.log("DB Connected");
+      console.log(`DB Connected ${config.PORT}`);
     });
   } catch (error) {
     console.log(error);

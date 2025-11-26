@@ -8,5 +8,6 @@ const path_1 = __importDefault(require("path"));
 dotenv_1.default.config({ path: path_1.default.join(process.cwd(), ".env") });
 exports.default = {
     PORT: process.env.PORT,
+    DB_LOCAL: process.env.DB_LOCAL,
 };
 //# sourceMappingURL=index.js.map
