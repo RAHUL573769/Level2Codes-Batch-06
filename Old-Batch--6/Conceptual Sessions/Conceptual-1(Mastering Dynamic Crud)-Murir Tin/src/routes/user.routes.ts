@@ -11,7 +11,8 @@ router.get("/", (_req: Request, res: Response) => {
 
 router.post("/create-user", UserController.createUser)
 
-
+router.get("/user", UserController.getAllUser)
+router.get("/:id", UserController.getSingleUserById)
 
 
 export const userRouter = router

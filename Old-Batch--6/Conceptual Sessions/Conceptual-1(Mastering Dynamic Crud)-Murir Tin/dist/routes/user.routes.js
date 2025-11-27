@@ -14,5 +14,7 @@ router.get("/", (_req, res) => {
     });
 });
 router.post("/create-user", user_controller_1.UserController.createUser);
+router.get("/user", user_controller_1.UserController.getAllUser);
+router.get("/:id", user_controller_1.UserController.getSingleUserById);
 exports.userRouter = router;
 //# sourceMappingURL=user.routes.js.map
