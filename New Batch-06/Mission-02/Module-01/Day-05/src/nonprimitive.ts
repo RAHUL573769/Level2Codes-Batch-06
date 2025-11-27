@@ -15,3 +15,11 @@ const user: {
   lastName: string;
 } = { firstName: "Rahul Rudra", lastName: "Rudra", organization: "Phero" };
 console.log(user);
+
+
+
+const sendInvite = (...friends: string[]) => {
+  console.log(friends)
+}
+
+sendInvite("Chintu", "Mintju")

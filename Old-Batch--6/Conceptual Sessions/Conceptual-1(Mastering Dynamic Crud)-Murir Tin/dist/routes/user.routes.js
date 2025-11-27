@@ -13,8 +13,8 @@ router.get("/", (_req, res) => {
         status: "success",
     });
 });
-router.post("/create-user", user_controller_1.UserController.createUser);
 router.get("/user", user_controller_1.UserController.getAllUser);
 router.get("/:id", user_controller_1.UserController.getSingleUserById);
+router.post("/create-user", user_controller_1.UserController.createUser);
 exports.userRouter = router;
 //# sourceMappingURL=user.routes.js.map

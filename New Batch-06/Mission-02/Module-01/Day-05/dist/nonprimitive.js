@@ -8,3 +8,7 @@ const couple = ["Husband", "wife"];
 console.log(typeof couple);
 const user = { firstName: "Rahul Rudra", lastName: "Rudra", organization: "Phero" };
 console.log(user);
+const sendInvite = (...friends) => {
+    console.log(friends);
+};
+sendInvite("Chintu", "Mintju");
