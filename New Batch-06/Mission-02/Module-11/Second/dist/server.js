@@ -40,6 +40,8 @@ const http_1 = __importDefault(require("http"));
 const config_1 = __importDefault(require("./config"));
 const RouteHandleers_1 = __importStar(require("./helpers/RouteHandleers"));
 const sendJson_1 = require("./helpers/sendJson");
+const fileDb_1 = require("./helpers/fileDb");
+const parsers_1 = __importDefault(require("./helpers/parsers"));
 (0, RouteHandleers_1.default)("GET", "/new", (req, res) => {
     (0, sendJson_1.sendJson)(res, 200, {
         message: "Hello From Type Script",
@@ -50,6 +52,20 @@ const sendJson_1 = require("./helpers/sendJson");
     //     message: "Hello World From TS",
     //     path: req.url
     // }))
+});
+(0, RouteHandleers_1.default)("POST", "/api/users/user", async (req, res) => {
+    const body = await (0, parsers_1.default)(req);
+    (0, sendJson_1.sendJson)(res, 201, body);
+});
+(0, RouteHandleers_1.default)("POST", "/api/newUsers", async (req, res) => {
+    const body = await (0, parsers_1.default)(req);
+    const users = (0, fileDb_1.readUsers)();
+    const newUsers = {
+        ...body
+    };
+    users.push(newUsers);
+    (0, fileDb_1.writeUsers)(users);
+    (0, sendJson_1.sendJson)(res, 201, body);
 });
 const server = http_1.default.createServer((req, res) => {
     // console.log("Server is Running")

@@ -3,6 +3,10 @@ import config from './config'
 import addRoutes, { RouteHandler, routes } from './helpers/RouteHandleers'
 import { sendJson } from './helpers/sendJson'
 
+import { readUsers, writeUsers } from './helpers/fileDb'
+import parseBody from './helpers/parsers'
+
+
 
 addRoutes("GET", "/new", (req, res) => {
 
@@ -16,7 +20,22 @@ addRoutes("GET", "/new", (req, res) => {
     //     path: req.url
     // }))
 })
+addRoutes("POST", "/api/users/user", async (req, res) => {
+    const body = await parseBody(req)
+    sendJson(res, 201, body)
+})
+addRoutes("POST", "/api/newUsers", async (req, res) => {
+    const body = await parseBody(req)
 
+    const users = readUsers()
+    const newUsers = {
+
+        ...body
+    }
+    users.push(newUsers)
+    writeUsers(users)
+    sendJson(res, 201, body)
+})
 const server: Server = http.createServer((req: IncomingMessage, res: ServerResponse) => {
 
 
