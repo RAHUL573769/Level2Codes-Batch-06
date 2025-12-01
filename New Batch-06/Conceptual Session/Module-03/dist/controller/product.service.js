@@ -10,5 +10,6 @@ const filePath = path_1.default.join(__dirname, "../../database/database.json");
 function productServices() {
     const data = fs_1.default.readFileSync(filePath, "utf-8");
     console.log(data.toString());
+    return JSON.parse(data);
 }
 productServices();

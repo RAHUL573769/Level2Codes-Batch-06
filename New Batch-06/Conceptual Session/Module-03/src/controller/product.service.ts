@@ -5,6 +5,7 @@ export function productServices() {
 
     const data = fs.readFileSync(filePath, "utf-8")
     console.log(data.toString())
+    return JSON.parse(data)
 }
 
 
