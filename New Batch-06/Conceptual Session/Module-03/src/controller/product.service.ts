@@ -1,5 +1,6 @@
 import path from "path"
 import fs from "fs"
+
 const filePath = path.join(__dirname, "../../database/database.json");
 export function productServices() {
 
@@ -7,6 +8,9 @@ export function productServices() {
     console.log(data.toString())
     return JSON.parse(data)
 }
+export function writeProduct(product: any) {
+    fs.writeFileSync(filePath, JSON.stringify(product))
 
+}
 
 productServices()
