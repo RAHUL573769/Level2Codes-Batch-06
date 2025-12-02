@@ -57,7 +57,6 @@ app.post("/users", async (req, res) => {
     const { name, email } = req.body;
     try {
         const result = await pool.query(`INSERT INTO users(name,email) VALUES($1,$2) RETURNING *`, [name, email]);
-        // console.log(req.body);
         // return res.status(200).json({
         //   success: true,
         //   message: "API is working",
