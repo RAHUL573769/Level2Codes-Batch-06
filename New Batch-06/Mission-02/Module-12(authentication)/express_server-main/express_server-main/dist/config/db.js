@@ -1,13 +1,13 @@
-import { Pool } from "pg";
-import config from ".";
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.pool = void 0;
+const pg_1 = require("pg");
 //DB
-export const pool = new Pool({
-  connectionString: `postgresql://neondb_owner:npg_5tdGe0SHAPKN@ep-hidden-brook-ahsielob-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require`,
+exports.pool = new pg_1.Pool({
+    connectionString: `postgresql://neondb_owner:npg_5tdGe0SHAPKN@ep-hidden-brook-ahsielob-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require`,
 });
-
 const initDB = async () => {
-  await pool.query(`
+    await exports.pool.query(`
         CREATE TABLE IF NOT EXISTS users(
         id SERIAL PRIMARY KEY,
         name VARCHAR(100) NOT NULL,
@@ -19,8 +19,7 @@ const initDB = async () => {
         updated_at TIMESTAMP DEFAULT NOW()
         )
         `);
-
-  await pool.query(`
+    await exports.pool.query(`
             CREATE TABLE IF NOT EXISTS todos(
             id SERIAL PRIMARY KEY,
             user_id INT REFERENCES users(id) ON DELETE CASCADE,
@@ -33,5 +32,4 @@ const initDB = async () => {
             )
             `);
 };
-
-export default initDB;
+exports.default = initDB;
