@@ -3,7 +3,7 @@ import config from ".";
 
 //DB
 export const pool = new Pool({
-  connectionString: `postgresql://neondb_owner:npg_5tdGe0SHAPKN@ep-hidden-brook-ahsielob-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require`,
+  connectionString: `postgresql://neondb_owner:npg_40CPKYHTehDq@ep-little-scene-a838knc3-pooler.eastus2.azure.neon.tech/neondb?sslmode=require&channel_binding=require`,
 });
 
 const initDB = async () => {
