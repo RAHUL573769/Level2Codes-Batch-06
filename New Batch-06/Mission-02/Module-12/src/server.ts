@@ -3,6 +3,7 @@ import { Pool } from "pg";
 import { logger } from "./middleware/middleware";
 import { initDb, pool } from "./database/database";
 import { UserRoute } from "./router/user.route";
+import { AuthRoute } from "./auth/auth.route";
 
 const port = 5000;
 const app = express();
@@ -77,10 +78,11 @@ app.get("/users", async (req: Request, res: Response) => {
   }
 });
 app.put("/users/:id", async (req: Request, res: Response) => {
-
+  app.post("/auth", AuthRoute.route)
 
   const query = await pool.query(``)
 })
+app.use("/auth", AuthRoute.route)
 app.listen(port, () => {
   console.log(`Server is listening on port ${port} `);
 });

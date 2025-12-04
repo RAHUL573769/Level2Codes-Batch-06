@@ -3,9 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const user_service_1 = require("../services/user.service");
 const createUsers = async (req, res) => {
-    const { name, email } = req.body;
+    const { name, email, password, role } = req.body;
+    // console.log("Password", password)
     try {
-        const result = user_service_1.UserServices.createUserIntoDb(name, email);
+        const result = user_service_1.UserServices.createUserIntoDb(name, email, password, role);
         return res.status(200).json({
             success: true,
             data: (await result).rows[0],

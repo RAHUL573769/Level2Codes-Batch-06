@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const middleware_1 = require("./middleware/middleware");
 const database_1 = require("./database/database");
 const user_route_1 = require("./router/user.route");
+const auth_route_1 = require("./auth/auth.route");
 const port = 5000;
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
@@ -58,8 +59,10 @@ app.get("/users", async (req, res) => {
     }
 });
 app.put("/users/:id", async (req, res) => {
+    app.post("/auth", auth_route_1.AuthRoute.route);
     const query = await database_1.pool.query(``);
 });
+app.use("/auth", auth_route_1.AuthRoute.route);
 app.listen(port, () => {
     console.log(`Server is listening on port ${port} `);
 });

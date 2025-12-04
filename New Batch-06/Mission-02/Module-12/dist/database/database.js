@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.initDb = exports.pool = void 0;
 const pg_1 = require("pg");
 exports.pool = new pg_1.Pool({
-    connectionString: "postgresql://neondb_owner:npg_rnuUh2q4LABC@ep-odd-waterfall-a8llb5ti-pooler.eastus2.azure.neon.tech/neondb?sslmode=require&channel_binding=require"
+    connectionString: 'postgresql://neondb_owner:npg_2JewoWRN3mZz@ep-floral-rain-a80923x5-pooler.eastus2.azure.neon.tech/neondb?sslmode=require&channel_binding=require'
 });
 const initDb = async () => {
     await exports.pool.query(`
@@ -11,6 +11,8 @@ const initDb = async () => {
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(150) UNIQUE NOT NULL,
+    role VARCHAR(150) NOT NULL,
+    password TEXT NOT NULL,
     age INT,
     phone VARCHAR(15),
     address TEXT,
