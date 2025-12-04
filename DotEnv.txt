@@ -22,3 +22,5 @@ export default {
     PORT: process.env.PORT as string,
     DB_LOCAL: process.env.DB_LOCAL as string,
 };
+---------------------
+"dev": "npx tsx watch ./src/server.ts"
