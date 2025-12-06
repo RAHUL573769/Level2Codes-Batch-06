@@ -1,5 +1,5 @@
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
 export declare const AuthController: {
-    login: (req: Request, _res: Response) => Promise<unknown>;
+    login: (req: Request, res: Response) => Promise<Response<any, Record<string, any>>>;
 };
 //# sourceMappingURL=auth.controller.d.ts.map

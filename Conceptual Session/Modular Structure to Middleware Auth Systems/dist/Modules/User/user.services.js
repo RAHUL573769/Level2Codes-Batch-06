@@ -7,11 +7,11 @@ exports.UserServices = void 0;
 const db_1 = require("../database/db");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const createUserIntoDb = async (payload) => {
-    const { name, email, password } = payload;
+    const { name, email, password, role } = payload;
     const hashedPassword = await bcrypt_1.default.hash(password, 12);
     console.log(hashedPassword);
-    const result = await db_1.pool.query(`INSERT INTO users(name,email,password) VALUES($1,$2,$3) RETURNING *
-        `, [name, email, hashedPassword]);
+    const result = await db_1.pool.query(`INSERT INTO users(name,email,password,role) VALUES($1,$2,$3,$4) RETURNING *
+        `, [name, email, hashedPassword, role]);
     delete result.rows[0].password;
     return result;
 };
