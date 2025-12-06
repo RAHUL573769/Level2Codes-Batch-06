@@ -14,10 +14,43 @@ app.use(express_1.default.json());
 app.get('/', (req, res) => {
     res.send(`Hello World!'  from ${req.path}`);
 });
-app.post("/", (req, res) => {
-    res.status(200).json({
-        message: "Addeed",
-        path: req.path
+app.post("/", async (req, res) => {
+    try {
+        const { name, email, age } = req.body;
+        const query = `
+      INSERT INTO users(name, email, age)
+      VALUES($1, $2, $3)
+      RETURNING *
+    `;
+        const result = await database_1.database.query(query, [name, email, age]);
+        res.json({
+            message: "User added",
+            data: result.rows[0]
+        });
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+app.get("/data", async (req, res) => {
+    const query = 'SELECT * FROM users';
+    const result = await database_1.database.query(query);
+    console.log(result);
+    res.json({
+        message: "User added",
+        data: result.rows[0]
+    });
+});
+app.get("/data/:id", async (req, res) => {
+    const id = req.params['id'];
+    const query = `SELECT * FROM users  WHERE id=$1`;
+    const result = await database_1.database.query(query, [id]);
+    // console.log(result)
+    // console.log(result)
+    res.json({
+        message: "User added",
+        data: result
     });
 });
 app.listen(port, () => {
