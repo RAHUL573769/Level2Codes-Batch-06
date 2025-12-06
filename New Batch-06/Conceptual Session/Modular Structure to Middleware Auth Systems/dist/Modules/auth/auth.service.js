@@ -20,10 +20,12 @@ const loginInToDb = async (email, password) => {
     if (!matchPassword) {
         throw new Error("Wrong Password");
     }
+    console.log("Logino Db", user);
     const JwtPayload = {
         id: user.rows[0].id,
         name: user.rows[0].name,
-        email: user.rows[0].email
+        email: user.rows[0].email,
+        role: user.rows[0].role
     };
     const secret = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30";
     const token = jsonwebtoken_1.default.sign(JwtPayload, secret, { expiresIn: "7d" });
