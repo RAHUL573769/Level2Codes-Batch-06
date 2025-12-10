@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Rahim Uddin",
+        "age": 27,
+        "email": "rahim.uddin@example.com",
+        "photo": "https://example.com/photos/rahim.jpg",
+        "role": "user",
+        "userStatus": "active"
+    },
+    {
+        "name": "Anika Chowdhury",
+        "age": 32,
+        "email": "anika.chowdhury@example.com",
+        "photo": "https://example.com/photos/anika.png",
+        "role": "admin",
+        "userStatus": "active"
+    },
+    {
+        "name": "Shakib Karim",
+        "age": 22,
+        "email": "shakib.karim@example.com",
+        "photo": "https://example.com/photos/shakib.jpeg",
+        "role": "user",
+        "userStatus": "inactive"
+    },
+    {
+        "name": "Nadia Rahman",
+        "age": 29,
+        "email": "nadia.rahman@example.com",
+        "photo": "https://example.com/photos/nadia.jpg",
+        "role": "user",
+        "userStatus": "active"
+    },
+    {
+        "name": "Fahim Hasan",
+        "age": 41,
+        "email": "fahim.hasan@example.com",
+        "photo": "https://example.com/photos/fahim.jpg",
+        "role": "admin",
+        "userStatus": "inactive"
+    }
+]

@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import { data } from '../Miscellinious/data';
+import { UserController } from '../controller/user.controller';
 const router = express.Router()
 router.get("/", (req: Request, res: Response) => {
 
@@ -14,4 +15,7 @@ router.get("/", (req: Request, res: Response) => {
 
     })
 })
+
+
+router.post("/create-user", UserController.createUser)
 export const UserRouter = router

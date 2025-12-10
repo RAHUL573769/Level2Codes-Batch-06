@@ -3,17 +3,18 @@ import express, { Request, Response } from 'express'
 import mongoose from 'mongoose'
 import config from './config'
 import { UserRouter } from './routes/user.route'
-
+import cors from "cors"
 const app = express()
 
-
+app.use(express.json())
+app.use(cors())
 async function server() {
 
     try {
 
         await mongoose.connect(config.DB_LOCAL)
         app.get('/', (req: Request, res: Response) => {
-            app.use("/api/v1/users", UserRouter)
+            // app.use("/api/v1/users", UserRouter)
 
             res.status(200).json({
 
@@ -25,7 +26,7 @@ async function server() {
 
 
 
-
+        app.use("/api/v1/users", UserRouter)
 
 
 
