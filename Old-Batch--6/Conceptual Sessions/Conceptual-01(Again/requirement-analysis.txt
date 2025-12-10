@@ -1,0 +1,27 @@
+User:{
+
+    name
+    email
+    review:[
+        {
+            review:"good",
+
+        }.,{
+
+        }
+    ]
+    ,
+    bookings:[
+        {
+            tourName:"Dhaka to Coxs"
+        }
+    ]
+}
+
+
+Movie{
+
+    id:1,
+    name:"Loki"
+}
+

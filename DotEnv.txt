@@ -23,4 +23,5 @@ export default {
     DB_LOCAL: process.env.DB_LOCAL as string,
 };
 ---------------------
-"dev": "npx tsx watch ./src/server.ts"
+    "start": "node ./dist/server.js",
+    "dev": "tsx watch ./src/server.ts"
