@@ -1,0 +1,1 @@
+{"version":3,"file":"review.interface.d.ts","sourceRoot":"","sources":["../../src/interface/review.interface.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,MAAM,EAAE,MAAM,UAAU,CAAA;AAEjC,MAAM,WAAW,OAAO;IAGpB,MAAM,EAAE,MAAM,CAAA;IACd,MAAM,EAAE,MAAM,CAAA;IAEd,SAAS,EAAE,IAAI,CAAA;IAEf,IAAI,EAAE,MAAM,CAAC,KAAK,CAAC,QAAQ,CAAA;IAC3B,IAAI,EAAE,MAAM,CAAC,KAAK,CAAC,QAAQ,CAAA;CAC9B"}
