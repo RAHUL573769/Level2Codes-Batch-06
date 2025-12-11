@@ -17,5 +17,7 @@ router.get("/", (req, res) => {
     });
 });
 router.post("/create-user", user_controller_1.UserController.createUser);
+router.get("/user", user_controller_1.UserController.getAllUser);
+router.patch("/update-user/:id", user_controller_1.UserController.updateUser);
 exports.UserRouter = router;
 //# sourceMappingURL=user.route.js.map

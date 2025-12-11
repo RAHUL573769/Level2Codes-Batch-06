@@ -28,6 +28,15 @@ const userSchema = new mongoose_1.Schema({
         enum: ["active", "inactive"]
     }
 });
+// userSchema.pre(/^find/, function (
+//     this: Query<IUser, Document>,
+//     next: CallbackWithoutResultAndOptionalError,
+// ) {
+//     this.where({ userStatus: "active" });
+// userSchema.pre(/^find/, function (this: Query<IUser, Document>, next: CallbackWithoutResultAndOptionalError) {
+//     this.find({ userStatus: { $eq: "active" } });
+//     next();
+// });
 const User = (0, mongoose_1.model)("User", userSchema);
 exports.default = User;
 //# sourceMappingURL=user.model.js.map

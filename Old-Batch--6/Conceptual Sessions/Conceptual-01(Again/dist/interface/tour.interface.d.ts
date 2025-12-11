@@ -1,6 +1,7 @@
 interface ITour {
     name: string;
     duration: number;
+    durationHours: number;
     ratingAverage: number;
     ratingQuantity: number;
     price: number;

@@ -32,6 +32,23 @@ const userSchema = new Schema<IUser>({
     }
 
 })
+
+
+// userSchema.pre(/^find/, function (
+//     this: Query<IUser, Document>,
+//     next: CallbackWithoutResultAndOptionalError,
+// ) {
+//     this.where({ userStatus: "active" });
+// userSchema.pre(/^find/, function (this: Query<IUser, Document>, next: CallbackWithoutResultAndOptionalError) {
+//     this.find({ userStatus: { $eq: "active" } });
+//     next();
+
+// });
+
+
+
+
+
 const User = model<IUser>("User", userSchema)
 
 export default User

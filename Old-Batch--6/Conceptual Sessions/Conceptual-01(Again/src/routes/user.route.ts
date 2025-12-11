@@ -18,4 +18,7 @@ router.get("/", (req: Request, res: Response) => {
 
 
 router.post("/create-user", UserController.createUser)
+router.get("/user", UserController.getAllUser)
+
+router.patch("/update-user/:id", UserController.updateUser)
 export const UserRouter = router

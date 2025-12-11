@@ -7,6 +7,7 @@ exports.UserController = void 0;
 // import User from "../models/user.model"
 const user_service_1 = require("../service/user.service");
 const user_model_1 = __importDefault(require("../models/user.model"));
+const mongoose_1 = __importDefault(require("mongoose"));
 const createUser = async (req, res) => {
     try {
         const data = req.body;
@@ -27,6 +28,7 @@ const createUser = async (req, res) => {
 const getAllUser = async () => {
     try {
         const result = await user_model_1.default.find();
+        console.log(result);
         return result;
     }
     catch (error) {
@@ -42,7 +44,14 @@ const getSingleUser = async (id) => {
         throw error;
     }
 };
-const updateUser = async (id, userData) => {
+const updateUser = async (req, res) => {
+    const id = req.params["id"];
+    const userData = req.body;
+    if (!mongoose_1.default.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({
+            message: "Invalid user ID format"
+        });
+    }
     const result = await user_model_1.default.findByIdAndUpdate(id, userData, { new: true, runValidators: true });
     return result;
 };
