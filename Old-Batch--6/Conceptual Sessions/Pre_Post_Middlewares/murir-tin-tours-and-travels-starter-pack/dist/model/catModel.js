@@ -51,11 +51,11 @@ const bcrypt_1 = __importDefault(require("bcrypt"));
 const catSchema = new mongoose_1.Schema({
     id: {
         type: Number,
-        // required: true,
-        // unique: true,
+        required: true,
     },
     name: {
         type: String,
+        unique: true,
         // required: true,
     },
     age: {

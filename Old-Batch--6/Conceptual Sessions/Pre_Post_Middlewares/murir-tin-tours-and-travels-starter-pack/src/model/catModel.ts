@@ -44,12 +44,13 @@ import bcrypt from 'bcrypt'
 const catSchema = new Schema<ICat, ICatModelStatic>({
   id: {
     type: Number,
-    // required: true,
-    // unique: true,
+    required: true,
+
   },
 
   name: {
     type: String,
+    unique: true,
     // required: true,
   },
   age: {
