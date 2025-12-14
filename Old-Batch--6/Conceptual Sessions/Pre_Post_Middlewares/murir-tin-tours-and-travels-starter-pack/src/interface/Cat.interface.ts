@@ -11,10 +11,10 @@ export type ICat = {
 }
 
 //instance methods
-// export type ICatMethods = {
-//   generateId(): Promise<void>
-// }
-// export type CatModel = Model<ICat, {}, ICatMethods>
+export type ICatMethods = {
+  generateId(): Promise<void>
+}
+export type CatModel = Model<ICat, {}, ICatMethods>
 
 //static methods
 // export type CatModel = Model<ICat, {}, ICatMethods>

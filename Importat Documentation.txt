@@ -1,0 +1,3 @@
+Interface and Static Methods Documentation :
+
+https://mongoosejs.com/docs/6.x/docs/typescript/statics-and-methods.html

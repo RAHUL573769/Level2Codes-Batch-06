@@ -12,16 +12,20 @@ import { Cat } from '../model/catModel'
 //   console.log('Id', id)
 //   return result
 // }
-const addCat = async function (catData: ICat): Promise<ICat> {
-  // const result = await Cat.create(catData)
-  // const id = await result.generateId()
-  //custom statics method
-  // const catId = await Cat.generateIdStatic()
+const addCat = async (catData: ICat): Promise<ICat> => {
+  // generate id using static method
+  const id = await Cat.generateIdStatic()
 
-  // const data = { ...catData, id: catId }
+  // attach id
+  const cat = new Cat({ ...catData, id })
+// const data = cat.ge
 
-  const result = await Cat.create(catData)
-  console.log('Result', result)
+  // save to DB
+  const result = await cat.save()
+  console.log(await Cat.generateIdStatic())
+  console.log('Id:', id)
+  // console.log('Result:', result)
+
   return result
 }
 

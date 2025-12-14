@@ -18,18 +18,19 @@ const catModel_1 = require("../model/catModel");
 //   console.log('Id', id)
 //   return result
 // }
-const addCat = function (catData) {
-    return __awaiter(this, void 0, void 0, function* () {
-        // const result = await Cat.create(catData)
-        // const id = await result.generateId()
-        //custom statics method
-        // const catId = await Cat.generateIdStatic()
-        // const data = { ...catData, id: catId }
-        const result = yield catModel_1.Cat.create(catData);
-        console.log('Result', result);
-        return result;
-    });
-};
+const addCat = (catData) => __awaiter(void 0, void 0, void 0, function* () {
+    // generate id using static method
+    const id = yield catModel_1.Cat.generateIdStatic();
+    // attach id
+    const cat = new catModel_1.Cat(Object.assign(Object.assign({}, catData), { id }));
+    // const data = cat.ge
+    // save to DB
+    const result = yield cat.save();
+    console.log(yield catModel_1.Cat.generateIdStatic());
+    console.log('Id:', id);
+    // console.log('Result:', result)
+    return result;
+});
 const getCat = () => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield catModel_1.Cat.find();
     return data;
