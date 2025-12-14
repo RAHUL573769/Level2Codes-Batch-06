@@ -67,7 +67,9 @@ catSchema.pre('save', function () {
 /* ======================
    POST MIDDLEWARE
 ====================== */
-catSchema.post('save', function (doc) {
-    console.log('Saved Cat:', doc);
+catSchema.post('save', function (doc, next) {
+    // console.log('Saved Cat:', doc)
+    doc.secret = "Password is Hashed";
+    next();
 });
 exports.Cat = (0, mongoose_1.model)('Cat', catSchema);

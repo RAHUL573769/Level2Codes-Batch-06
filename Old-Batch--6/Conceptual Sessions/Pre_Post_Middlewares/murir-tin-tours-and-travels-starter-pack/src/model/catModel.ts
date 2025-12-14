@@ -59,8 +59,11 @@ catSchema.pre('save', async function () {
 /* ======================
    POST MIDDLEWARE
 ====================== */
-catSchema.post('save', function (doc) {
-  console.log('Saved Cat:', doc)
+catSchema.post('save', function (doc, next) {
+  // console.log('Saved Cat:', doc)
+
+  doc.secret = "Password is Hashed"
+  next()
 })
 
 export const Cat = model<ICat, ICatModelStatic>('Cat', catSchema)

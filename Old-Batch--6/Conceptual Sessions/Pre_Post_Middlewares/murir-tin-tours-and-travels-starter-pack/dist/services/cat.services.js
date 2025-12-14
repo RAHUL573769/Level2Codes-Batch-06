@@ -19,16 +19,14 @@ const catModel_1 = require("../model/catModel");
 //   return result
 // }
 const addCat = (catData) => __awaiter(void 0, void 0, void 0, function* () {
-    // generate id using static method
     const id = yield catModel_1.Cat.generateIdStatic();
-    // attach id
-    const cat = new catModel_1.Cat(Object.assign(Object.assign({}, catData), { id }));
-    // const data = cat.ge
-    // save to DB
-    const result = yield cat.save();
-    console.log(yield catModel_1.Cat.generateIdStatic());
-    console.log('Id:', id);
-    // console.log('Result:', result)
+    const result = yield catModel_1.Cat.create(catData);
+    // const cat = new Cat({ ...catData, id })
+    // const savedCat = await cat.save()
+    // // convert to plain object
+    const catObject = result.toObject();
+    // // remove sensitive field
+    delete catObject.secret;
     return result;
 });
 const getCat = () => __awaiter(void 0, void 0, void 0, function* () {

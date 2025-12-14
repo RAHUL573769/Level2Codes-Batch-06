@@ -13,21 +13,21 @@ import { Cat } from '../model/catModel'
 //   return result
 // }
 const addCat = async (catData: ICat): Promise<ICat> => {
-  // generate id using static method
   const id = await Cat.generateIdStatic()
+  const result = await Cat.create(catData)
 
-  // attach id
-  const cat = new Cat({ ...catData, id })
-// const data = cat.ge
+  // const cat = new Cat({ ...catData, id })
+  // const savedCat = await cat.save()
 
-  // save to DB
-  const result = await cat.save()
-  console.log(await Cat.generateIdStatic())
-  console.log('Id:', id)
-  // console.log('Result:', result)
+  // // convert to plain object
+  const catObject = result.toObject()
+
+  // // remove sensitive field
+  delete catObject.secret
 
   return result
 }
+
 
 const getCat = async (): Promise<ICat[]> => {
   const data = await Cat.find()
