@@ -1,7 +1,6 @@
-import mongoose from "mongoose";
 import IUser from "../interface/user.interface";
-export declare const User: mongoose.Model<IUser, {}, {}, {}, mongoose.Document<unknown, {}, IUser, {}, mongoose.DefaultSchemaOptions> & IUser & {
-    _id: mongoose.Types.ObjectId;
+export declare const User: import("mongoose").Model<IUser, {}, {}, {}, import("mongoose").Document<unknown, {}, IUser, {}, import("mongoose").DefaultSchemaOptions> & IUser & {
+    _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
 }, any, IUser>;

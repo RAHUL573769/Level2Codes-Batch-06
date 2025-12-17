@@ -1,6 +1,5 @@
-import mongoose, { model, Query, Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 import IUser from "../interface/user.interface";
-import { CallbackWithoutResultAndOptionalError } from "mongoose";
 const userSchema = new Schema<IUser>({
     name: {
         type: String,

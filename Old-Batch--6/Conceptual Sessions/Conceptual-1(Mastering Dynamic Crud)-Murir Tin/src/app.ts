@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import { userRouter } from "./routes/user.routes";
 import cors from "cors"
+import { notFoundController } from "./controllers/notFoud.controller";
 const app: Application = express();
 app.use(express.json())
 app.use(cors())
@@ -15,5 +16,7 @@ app.use(cors())
 // app.use("/api/v1/users", userRouter);
 app.use("/", userRouter)
 app.use("/api/v1/users", userRouter)
+
+// app.get(Controller.notFound)"*", notFound
 
 export default app;

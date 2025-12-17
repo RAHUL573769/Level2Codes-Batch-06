@@ -19,5 +19,6 @@ app.use((0, cors_1.default)());
 // app.use("/api/v1/users", userRouter);
 app.use("/", user_routes_1.userRouter);
 app.use("/api/v1/users", user_routes_1.userRouter);
+// app.get(Controller.notFound)"*", notFound
 exports.default = app;
 //# sourceMappingURL=app.js.map
