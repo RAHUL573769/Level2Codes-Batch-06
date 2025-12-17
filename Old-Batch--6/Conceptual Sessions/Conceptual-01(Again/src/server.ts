@@ -1,5 +1,5 @@
 
-import express, { Request, Response } from 'express'
+import express, { NextFunction, Request, Response } from 'express'
 import mongoose from 'mongoose'
 import config from './config'
 import { UserRouter } from './routes/user.route'
@@ -29,7 +29,10 @@ async function server() {
         app.use("/api/v1/users", UserRouter)
 
 
+        app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 
+
+        })
 
         app.listen(config.PORT, () => {
             console.log(`Example app listening on port ${config.PORT}`)

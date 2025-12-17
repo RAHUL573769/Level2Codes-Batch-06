@@ -23,6 +23,8 @@ async function server() {
             });
         });
         app.use("/api/v1/users", user_route_1.UserRouter);
+        app.use((err, req, res, next) => {
+        });
         app.listen(config_1.default.PORT, () => {
             console.log(`Example app listening on port ${config_1.default.PORT}`);
         });
