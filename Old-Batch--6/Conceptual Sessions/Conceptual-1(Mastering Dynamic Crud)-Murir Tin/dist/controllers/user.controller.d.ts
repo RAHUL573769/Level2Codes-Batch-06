@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 export declare const UserController: {
-    createUser: (req: Request, res: Response) => Promise<void>;
+    createUser: (req: Request, res: Response, next: NextFunction) => void;
     getAllUser: (_req: Request, res: Response, next: NextFunction) => Promise<void>;
     getSingleUserById: (req: Request, res: Response) => Promise<void>;
 };
