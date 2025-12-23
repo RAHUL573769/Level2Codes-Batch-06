@@ -11,28 +11,7 @@ const handleValidationError = (err) => {
             message: errorObj.message
         });
     });
-    return { statusCode: 400, status: "Failed", message: "Failed", issues };
+    return { statusCode: 400, status: "Failed", message: "Cannot Create User", issues };
 };
 exports.handleValidationError = handleValidationError;
-// import mongoose from 'mongoose'
-// import { TErrorIssue, TErrorResponse } from '../../types/TErrorResponse'
-// const handleValidationError = (
-//   err: mongoose.Error.ValidationError,
-// ): TErrorResponse => {
-//   const errorValues = Object.values(err.errors)
-//   const issues: TErrorIssue[] = []
-//   errorValues.forEach((errObj) => {
-//     issues.push({
-//       path: errObj.path,
-//       message: errObj.message,
-//     })
-//   })
-//   return {
-//     statusCode: 400,
-//     status: 'error',
-//     message: 'Validation Error',
-//     issues,
-//   }
-// }
-// export default handleValidationError
 //# sourceMappingURL=handleValidationError.js.map
