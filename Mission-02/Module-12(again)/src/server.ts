@@ -44,7 +44,8 @@ app.get("/data", async (req: Request, res: Response) => {
     console.log(result)
     res.json({
         message: "User added",
-        data: result.rows[0]
+        data: result.rows[0],
+        path: req.path
     });
 })
 app.get("/data/:id", async (req: Request, res: Response) => {
@@ -57,6 +58,18 @@ app.get("/data/:id", async (req: Request, res: Response) => {
     // console.log(result)
     res.json({
         message: "User added",
+        data: result
+    });
+})
+app.put("/data/:id", async (req: Request, res: Response) => {
+
+
+    const id = req.params['id'];
+    const { name, email } = req.body;
+    const query = `UPDATE users SET name=$1, email=$2 WHERE id=$3 RETURNING *`;
+    const result = await database.query(query, [name, email, id]);
+    res.json({
+        message: "User updated",
         data: result
     });
 })
