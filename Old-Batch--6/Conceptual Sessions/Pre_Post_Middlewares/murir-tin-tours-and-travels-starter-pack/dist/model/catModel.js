@@ -15,14 +15,48 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Cat = void 0;
 const mongoose_1 = require("mongoose");
 const bcrypt_1 = __importDefault(require("bcrypt"));
+// import config from '../config'
+// const catSchema = new Schema<ICat, CatModel, ICatMethods>({
+//   id: {
+//     type: Number,
+//     // required: true,
+//     // unique: true,
+//   },
+//   name: {
+//     type: String,
+//     // required: true,
+//   },
+//   age: {
+//     type: Number,
+//   },
+//   color: {
+//     type: String,
+//   },
+//   secret: { type: String },
+// })
+//instance methods
+// catSchema.methods.generateId = async function () {
+//   try {
+//     const lastCat = await Cat.find().sort({ _id: 1 }).exec()
+//     if (!lastCat) {
+//       return 1
+//     }
+//     return lastCat.id + 1
+//   } catch (error) {
+//     console.log('Error Found')
+//   }
+// }
+// export const Cat = model<ICat, CatModel>('Cat', catSchema)
+//static methods
 const catSchema = new mongoose_1.Schema({
     id: {
         type: Number,
-        required: true,
+        // required: true,
+        // unique: true,
     },
     name: {
         type: String,
-        unique: true,
+        // required: true,
     },
     age: {
         type: Number,
@@ -30,46 +64,36 @@ const catSchema = new mongoose_1.Schema({
     color: {
         type: String,
     },
-    secret: {
-        type: String,
-    },
+    secret: { type: String },
 });
-/* ======================
-   STATIC METHODS
-====================== */
 catSchema.statics.generateIdStatic = function () {
     return __awaiter(this, void 0, void 0, function* () {
-        const lastCat = yield this.findOne().sort({ id: -1 }).exec();
-        if (!lastCat) {
-            return 1;
+        try {
+            const lastCat = yield exports.Cat.findOne().sort({ _id: -1 }).exec();
+            if (!lastCat) {
+                return 1;
+            }
+            return lastCat.id + 1;
         }
-        return lastCat.id + 1;
+        catch (error) {
+            console.log('Error Found');
+        }
     });
 };
-/* ======================
-   INSTANCE METHODS
-====================== */
-catSchema.methods.generateId = function () {
-    return __awaiter(this, void 0, void 0, function* () {
-        console.log('Generate ID instance method');
-    });
-};
-/* ======================
-   PRE MIDDLEWARE
-====================== */
+//pre middle ware
 catSchema.pre('save', function () {
     return __awaiter(this, void 0, void 0, function* () {
-        if (this.secret) {
+        try {
             this.secret = yield bcrypt_1.default.hash(this.secret, 12);
+        }
+        catch (error) {
+            console.log(error);
         }
     });
 });
-/* ======================
-   POST MIDDLEWARE
-====================== */
-catSchema.post('save', function (doc, next) {
-    // console.log('Saved Cat:', doc)
-    doc.secret = "Password is Hashed";
-    next();
+catSchema.post('save', function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        console.log(this);
+    });
 });
 exports.Cat = (0, mongoose_1.model)('Cat', catSchema);

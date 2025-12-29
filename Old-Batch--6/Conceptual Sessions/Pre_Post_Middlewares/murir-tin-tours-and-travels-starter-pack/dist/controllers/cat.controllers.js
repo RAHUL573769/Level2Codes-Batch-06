@@ -11,13 +11,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CatController = void 0;
 const cat_services_1 = require("../services/cat.services");
-// const sendResponse<T>=(res: Response, req: Request, data: T) => {
-//   res.status(200).json({
-//     message: 'Cat Data Created',
-//     success: true,
-//     data: data1,
-//   })
-// }
 const createCatController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = req.body;

@@ -12,22 +12,18 @@ import { Cat } from '../model/catModel'
 //   console.log('Id', id)
 //   return result
 // }
-const addCat = async (catData: ICat): Promise<ICat> => {
-  const id = await Cat.generateIdStatic()
+const addCat = async function (catData: ICat): Promise<ICat> {
+  // const result = await Cat.create(catData)
+  // const id = await result.generateId()
+  //custom statics method
+  // const catId = await Cat.generateIdStatic()
+
+  // const data = { ...catData, id: catId }
+
   const result = await Cat.create(catData)
-
-  // const cat = new Cat({ ...catData, id })
-  // const savedCat = await cat.save()
-
-  // // convert to plain object
-  const catObject = result.toObject()
-
-  // // remove sensitive field
-  delete catObject.secret
-
+  console.log('Result', result)
   return result
 }
-
 
 const getCat = async (): Promise<ICat[]> => {
   const data = await Cat.find()

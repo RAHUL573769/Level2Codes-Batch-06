@@ -2,16 +2,6 @@
 import { Request, Response } from 'express'
 import { CatServices } from '../services/cat.services'
 
-// const sendResponse<T>=(res: Response, req: Request, data: T) => {
-//   res.status(200).json({
-//     message: 'Cat Data Created',
-//     success: true,
-//     data: data1,
-//   })
-
-// }
-
-
 const createCatController = async (req: Request, res: Response) => {
   try {
     const data = req.body
