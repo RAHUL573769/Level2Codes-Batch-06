@@ -14,10 +14,21 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
+  id       Int      @id @default(autoincrement())
+  email    String   @unique
+  name     String?
+  role     ROLE     @default(User)
+  posts    Post[]
+  profiles Profile?
+}
+
+model Profile {
+  id            Int     @default(autoincrement())
+  name          String  @unique
+  bio           String?
+  dateOBirth    String?
+  profileUserId Int     @unique
+  user          User    @relation(fields: [profileUserId], references: [id])
 }
 
 model Post {
@@ -25,6 +36,11 @@ model Post {
   title     String
   content   String?
   published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
   authorId  Int
+  author    User    @relation(fields: [authorId], references: [id])
+}
+
+enum ROLE {
+  User
+  ADMIN
 }
