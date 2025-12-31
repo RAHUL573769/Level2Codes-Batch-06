@@ -5,7 +5,7 @@ const createUser = async (userData: IUser): Promise<IUser> => {
   const result = await User.create(userData)
   //   const result = new User(userData)
   //   await result.save()
-
+  // throw new GenericError("Create User Failed", 404)
   return result
 }
 

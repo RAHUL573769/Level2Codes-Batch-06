@@ -17,6 +17,6 @@ export type TErrorResponse = {
 export type TErrorIssues = {
     path: string,
     message: string,
-    kind: string,
-    stack: string
+    kind?: string,
+    stack?: string
 }

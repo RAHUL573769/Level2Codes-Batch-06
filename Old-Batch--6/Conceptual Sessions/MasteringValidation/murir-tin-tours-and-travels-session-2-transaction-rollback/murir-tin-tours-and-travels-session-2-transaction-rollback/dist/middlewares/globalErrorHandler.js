@@ -6,8 +6,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = __importDefault(require("mongoose"));
-const errorHelpers_1 = require("../helpers/errorHelpers");
+const errorPreprocessor_1 = __importDefault(require("../helpers/errorPreprocessor"));
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const globalErrorHandler = (err, req, res, next) => {
     let errorResponse = {
@@ -19,28 +18,37 @@ const globalErrorHandler = (err, req, res, next) => {
     // let statusCode = err.statusCode || 500
     // let message = err.message || 'Something went wrong'
     // let status = err.status || 'error'
-    // console.log(err)
-    if (err.name && err instanceof mongoose_1.default.Error.ValidationError) {
-        console.log("Ami Validation Error");
-        errorResponse = (0, errorHelpers_1.handleValidationError)(err);
-        // errorResponse.statusCode = 400
-        // errorResponse.message = "Validation Error Found"
-        // errorResponse.status = "Failed"
-        // const errorValues = Object.values(err.errors)
-        // errorValues.map((errorObj: mongoose.Error.ValidatorError | mongoose.Error.CastError) => {
-        //   errorResponse.issues.push({
-        //     path: errorObj.path,
-        //     message: errorObj.message,
-        //     kind: errorObj.kind,
-        //     stack: errorObj.stack as string
-        //   })
-        // })
-        // statusCode = 400
-        // message = "Validation Error Found"
-        // status = "Error"
-        // console.log("Error Values", errorValues)
-        // errorResponse.issues = []
-    }
+    console.log(err);
+    //   if (err.name && err instanceof mongoose.Error.ValidationError) {
+    //   console.log("Ami Validation Error")
+    //   errorResponse = handleValidationError(err)
+    //   errorResponse.statusCode = 400
+    //   errorResponse.message = "Validation Error Found"
+    //   errorResponse.status = "Failed"
+    //   const errorValues = Object.values(err.errors)
+    //   errorValues.map((errorObj: mongoose.Error.ValidatorError | mongoose.Error.CastError) => {
+    //     errorResponse.issues.push({
+    //       path: errorObj.path,
+    //       message: errorObj.message,
+    //       kind: errorObj.kind,
+    //       stack: errorObj.stack as string
+    //     })
+    //   })
+    //   statusCode = 400
+    //   message = "Validation Error Found"
+    //   status = "Error"
+    //   console.log("Error Values", errorValues)
+    //   errorResponse.issues = []
+    // } else if (err.code && err.code === 11000) {
+    //   errorResponse = handleDuplicate(err)
+    // } else if (err instanceof mongoose.Error.CastError) {
+    //   errorResponse = handleCastError(err)
+    // } else if (err instanceof Error) {
+    //   errorResponse.statusCode = 400
+    //   errorResponse.message = err.message
+    //   errorResponse.status = "Failed"
+    // }
+    errorResponse = (0, errorPreprocessor_1.default)(err);
     res.status(errorResponse.statusCode).json({
         status: errorResponse.status,
         message: errorResponse.message,

@@ -18,6 +18,7 @@ const createUser = (userData) => __awaiter(void 0, void 0, void 0, function* () 
     const result = yield user_model_1.default.create(userData);
     //   const result = new User(userData)
     //   await result.save()
+    // throw new GenericError("Create User Failed", 404)
     return result;
 });
 const getAllUsers = () => __awaiter(void 0, void 0, void 0, function* () {
