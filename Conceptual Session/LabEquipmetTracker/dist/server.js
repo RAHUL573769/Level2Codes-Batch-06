@@ -1,12 +1,14 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const app_1 = __importDefault(require("./app"));
+import app from "./app";
+import { prisma } from "./lib/prisma";
 const port = process.env.PORT || 5000;
-function server() {
-    app_1.default.listen(port, () => {
+async function server() {
+    try {
+        await prisma.$disconnect();
+    }
+    catch (error) {
+        console.log(error);
+    }
+    app.listen(port, () => {
         console.log(`Server is listening ${port}`);
     });
 }
